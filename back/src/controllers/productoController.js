@@ -37,11 +37,11 @@ exports.obtenerProductos = async (req, res) => {
             filter.isPromotion = (req.query.isPromotion === '1');
         }
 
-        // Ordenamiento
-        const orderBy = req.query.orderBy || 'nombre'; // Campo por defecto para ordenar por nombre
-        const orderDirection = req.query.orderDirection || 'asc'; // Dirección por defecto ascendente
+        
+        const orderBy = req.query.orderBy || 'nombre'; 
+        const orderDirection = req.query.orderDirection || 'asc'; 
 
-        // Obtener los productos filtrados y ordenados
+        
         const productos = await Productos.find(filter).sort({ [orderBy]: orderDirection });
 
         res.json(productos);
